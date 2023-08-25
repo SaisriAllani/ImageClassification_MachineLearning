@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indian Monument Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .upload-form {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .upload-form input[type="file"] {
+            display: none;
+        }
+        .upload-form label {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .upload-form input[type="submit"] {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .image-container {
+            margin-top: 30px;
+        }
+        .image-container img {
+            max-width: 400px;
+            max-height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .predicted-label {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Indian Monument - Image Prediction</h1>
+    <div class="upload-form">
+        <form method="POST" action="/" enctype="multipart/form-data">
+            <input type="file" name="image" id="image-input">
+            <label for="image-input">Choose Image</label>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+    {% if image_base64 %}
+    <div class="image-container">
+        <img src="data:image/jpeg;base64,{{ image_base64 }}" alt="Uploaded Image">
+    </div>
+    <div class="predicted-label">
+        <h3>Predicted Label:</h3>
+        <h2><p>{{ predicted_label }}</p></h2>
+    </div>
+    {% endif %}
+</body>
+</html>
