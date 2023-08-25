@@ -10,9 +10,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sklearn.decomposition import PCA
 
-#path = "C:/Users/rupaa/Desktop/archive/Indian-monuments/images"
-train_dir = "C:/Users/rupaa/Desktop/archive/Indian-monuments/images/train"
-validation_dir = "C:/Users/rupaa/Desktop/archive/Indian-monuments/images/test"
+train_dir = "..../Indian-monuments/images/train"
+validation_dir = "..../Indian-monuments/images/test"
 
 # Get all the class names
 data_dir = pathlib.Path(train_dir)
