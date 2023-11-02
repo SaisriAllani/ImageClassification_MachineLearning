@@ -101,7 +101,7 @@ def predict_image(image_path):
     image = cv2.resize(image, image_size)
     flattened_image = image.flatten()
     pca_image = pca.transform([flattened_image])
-    predicted_label = clf.predict(pca_image)[0]
+    predicted_label = clf.predict(pca_image)
     return predicted_label
 
 
