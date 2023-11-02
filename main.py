@@ -38,27 +38,6 @@ def load_data(target_dir, target_class, num_images):
         labels.append(target_class)
     return images, labels
 
-
-def load_validation_data(target_dir, target_class, num_images):
-    images = []
-    labels = []
-    target_folder = os.path.join(target_dir, target_class)
-    image_files = os.listdir(target_folder)
-    random.shuffle(image_files)  # Shuffle the image files
-    for image_file in image_files[:num_images]:
-        image_path = os.path.join(target_folder, image_file)
-        if not os.path.isfile(image_path):
-            continue
-        image = cv2.imread(image_path)
-        if image is None:
-            continue
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image = cv2.resize(image, image_size)
-        images.append(image)
-        labels.append(target_class)
-    return images, labels
-
-
 image_size = (224, 224)
 
 data = []
@@ -74,7 +53,7 @@ for class_name in class_names:
 
 # Load validation data
 for class_name in val_class_names:
-    images, class_labels = load_validation_data(validation_dir,class_name, num_images_per_class)
+    images, class_labels = load_data(validation_dir,class_name, num_images_per_class)
     data.extend(images)
     labels.extend(class_labels)
 
