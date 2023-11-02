@@ -40,8 +40,8 @@ def upload_predict():
             _, img_encoded = cv2.imencode('.jpg', image)
             img_base64 = base64.b64encode(img_encoded).decode('utf-8')
 
-            return render_template('rupa.html', image_base64=img_base64, predicted_label=predicted_label)
-    return render_template('rupa.html', image_base64=None, predicted_label=None)
+            return render_template('frontEnd.html', image_base64=img_base64, predicted_label=predicted_label)
+    return render_template('frontEnd.html', image_base64=None, predicted_label=None)
 
 
 if __name__ == '__main__':
